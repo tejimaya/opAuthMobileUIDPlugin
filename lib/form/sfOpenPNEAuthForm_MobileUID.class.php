@@ -16,7 +16,7 @@ class sfOpenPNEAuthForm_MobileUID extends sfOpenPNEAuthForm
     ));
 
     $this->setValidatorSchema(new sfValidatorSchema(array(
-      'guid' => new sfValidatorString(),
+      'guid' => new sfValidatorString(array('required' => false)),
     )));
 
     $this->setDefault('guid', 'on');
