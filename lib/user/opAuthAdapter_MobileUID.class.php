@@ -1,13 +1,13 @@
 <?php
 
 /**
- * sfOpenPNEAuthContainer_MobileUID will handle credential for MobileUID.
+ * opAuthAdapterMobileUID will handle credential for MobileUID.
  *
  * @package    OpenPNE
  * @subpackage user
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class sfOpenPNEAuthContainer_MobileUID extends sfOpenPNEAuthContainer
+class opAuthAdapterMobileUID extends opAuthAdapter
 {
   protected $authModuleName = 'mobileUID';
 
