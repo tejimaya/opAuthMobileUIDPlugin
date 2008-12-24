@@ -12,24 +12,6 @@ class sfOpenPNEAuthContainer_MobileUID extends sfOpenPNEAuthContainer
   protected $authModuleName = 'mobileUID';
 
   /**
-   * Fetches data from storage container.
-   *
-   * @param  sfForm $form
-   * @return int    the member id
-   */
-  public function fetchData($form)
-  {
-    $mobileUID = sfContext::getInstance()->getRequest()->getMobileUID();
-    $memberConfig = MemberConfigPeer::retrieveByNameAndValue('mobile_uid', $mobileUID);
-
-    if ($memberConfig) {
-      return $memberConfig->getMemberId();
-    }
-
-    return false;
-  }
-
-  /**
    * Returns true if the current state is a beginning of register.
    *
    * @return bool returns true if the current state is a beginning of register, false otherwise
