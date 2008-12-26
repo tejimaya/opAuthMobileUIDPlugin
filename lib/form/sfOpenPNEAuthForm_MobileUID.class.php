@@ -16,29 +16,17 @@ class sfOpenPNEAuthForm_MobileUID extends sfOpenPNEAuthForm
     ));
 
     $this->setValidatorSchema(new sfValidatorSchema(array(
-      'guid' => new sfValidatorString(array('required' => false)),
+      'guid'       => new sfValidatorString(array('required' => false)),
+      'mobile_uid' => new sfValidatorString(array('required' => true)),
     )));
 
     $this->setDefault('guid', 'on');
 
-    $this->mergePostValidator(new sfValidatorCallback(array(
-      'callback'  => array($this, 'validateId'),
-    )));
+    $this->mergePostValidator(
+      new opAuthValidatorMemberConfig(array('config_name' => 'mobile_uid'))
+    );
 
     parent::configure();
-  }
-
-  public function validateId($validator, $value, $arguments = array())
-  {
-    $mobileUID = sfContext::getInstance()->getRequest()->getMobileUID();
-    $data = MemberConfigPeer::retrieveByNameAndValue('mobile_uid', $mobileUID);
-    if (!$data)
-    {
-      throw new sfValidatorError($validator, 'Not a valid UID.');
-    }
-
-    $value['member_id'] = $data->getMember()->getId();
-    return $value;
   }
 
   public function getAuthMode()

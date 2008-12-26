@@ -11,6 +11,13 @@ class opAuthAdapterMobileUID extends opAuthAdapter
 {
   protected $authModuleName = 'mobileUID';
 
+  public function getAuthParameters()
+  {
+    $params = parent::getAuthParameters();
+    $params['mobile_uid'] = $this->getRequest()->getMobileUID();
+    return $params;
+  }
+
   /**
    * Returns true if the current state is a beginning of register.
    *
