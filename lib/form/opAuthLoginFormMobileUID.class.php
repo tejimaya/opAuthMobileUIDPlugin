@@ -1,13 +1,13 @@
 <?php
 
 /**
- * sfOpenPNEAuthForm_MobileUID represents a form to login.
+ * opAuthLoginFormMobileUID represents a form to login by one's mobile UID.
  *
  * @package    OpenPNE
- * @subpackage user
+ * @subpackage form
  * @author     Kousuke Ebihara <ebihara@tejimaya.com>
  */
-class sfOpenPNEAuthForm_MobileUID extends sfOpenPNEAuthForm
+class opAuthLoginFormMobileUID extends opAuthLoginForm
 {
   public function configure()
   {
@@ -27,11 +27,6 @@ class sfOpenPNEAuthForm_MobileUID extends sfOpenPNEAuthForm
     );
 
     parent::configure();
-  }
-
-  public function getAuthMode()
-  {
-    return 'MobileUID';
   }
 
   public function isUtn()

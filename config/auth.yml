@@ -1,2 +1,3 @@
 enable_pc:
-  Default: 0
+  IsConfig: 0
+  Default:  0
