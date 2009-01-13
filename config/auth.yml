@@ -1,3 +1,6 @@
 enable_pc:
   IsConfig: 0
   Default:  0
+
+admin_invite:
+  Default:  false
