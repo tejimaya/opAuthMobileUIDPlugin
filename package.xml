@@ -5,16 +5,16 @@
     http://pear.php.net/dtd/package-2.0.xsd">
  <name>opAuthMobileUIDPlugin</name>
  <channel>plugins.openpne.jp</channel>
- <summary> </summary>
- <description> </description>
+ <summary>opAuthMobileUIDPlugin</summary>
+ <description>opAuthMobileUIDPlugin</description>
  <lead>
-  <name />
-  <user />
-  <email>maintainer@example.com</email>
+  <name>Kousuke Ebihara</name>
+  <user>ebihara</user>
+  <email />
   <active>yes</active>
  </lead>
- <date>2009-01-27</date>
- <time>08:16:36</time>
+ <date>2009-02-05</date>
+ <time>07:20:36</time>
  <version>
   <release>1.0.0</release>
   <api>1.0.0</api>
@@ -23,23 +23,23 @@
   <release>stable</release>
   <api>stable</api>
  </stability>
- <license>Apache 2.0</license>
+ <license>Apache</license>
  <notes>First release</notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <file baseinstalldir="/" md5sum="974531e473757a1fddad3dc3db45d54a" name="apps/pc_backend/modules/opAuthMobileUIDPlugin/actions/actions.class.php" role="php" />
-   <file baseinstalldir="/" md5sum="0f14de497fc83a63b4dbdba344f54142" name="apps/pc_backend/modules/opAuthMobileUIDPlugin/templates/indexSuccess.php" role="php" />
+   <file baseinstalldir="/" md5sum="974531e473757a1fddad3dc3db45d54a" name="apps/pc_backend/modules/opAuthMobileUIDPlugin/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="0f14de497fc83a63b4dbdba344f54142" name="apps/pc_backend/modules/opAuthMobileUIDPlugin/templates/indexSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="8d85a0ba319d94bac0bb6978487cc50f" name="config/auth.yml" role="data" />
-   <file baseinstalldir="/" md5sum="c8ec6969ed65ccf41839942f53048cae" name="lib/form/opAuthConfigFormMobileUID.class.php" role="php" />
-   <file baseinstalldir="/" md5sum="46d70342f5b30785924a0de212b73255" name="lib/form/opAuthLoginFormMobileUID.class.php" role="php" />
-   <file baseinstalldir="/" md5sum="a2dca284ffd54a1500a33952c31b20c1" name="lib/user/opAuthAdapterMobileUID.class.php" role="php" />
+   <file baseinstalldir="/" md5sum="c8ec6969ed65ccf41839942f53048cae" name="lib/form/opAuthConfigFormMobileUID.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="46d70342f5b30785924a0de212b73255" name="lib/form/opAuthLoginFormMobileUID.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="a2dca284ffd54a1500a33952c31b20c1" name="lib/user/opAuthAdapterMobileUID.class.php" role="data" />
    <file baseinstalldir="/" md5sum="3b83ef96387f14655fc854ddc3c6bd57" name="LICENSE" role="data" />
   </dir>
  </contents>
  <dependencies>
   <required>
    <php>
-    <min>5.2.0</min>
+    <min>5.2.3</min>
    </php>
    <pearinstaller>
     <min>1.4.0</min>
@@ -62,8 +62,8 @@
     <release>stable</release>
     <api>stable</api>
    </stability>
-   <date>2009-01-27</date>
-   <license>Apache 2.0</license>
+   <date>2009-02-05</date>
+   <license>Apache</license>
    <notes>First release</notes>
   </release>
  </changelog>
