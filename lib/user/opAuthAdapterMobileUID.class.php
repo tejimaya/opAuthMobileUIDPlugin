@@ -23,6 +23,7 @@ class opAuthAdapterMobileUID extends opAuthAdapter
   {
     $params = parent::getAuthParameters();
     $params['mobile_uid'] = $this->getRequest()->getMobileUID();
+    $params['mobile_cookie_uid'] = $this->getRequest()->getMobileUidCookie();
     return $params;
   }
 
