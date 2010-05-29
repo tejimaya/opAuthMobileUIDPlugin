@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<xliff version="1.0">
+  <file orginal="global" source-language="en" datatype="plaintext">
+    <body>
+      <trans-unit id="">
+        <source>Mobile-UID Login (For Japanese mobile phone)</source>
+        <target>かんたんﾛｸﾞｲﾝ</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

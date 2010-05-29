@@ -17,3 +17,7 @@ uid_type:
     2: "Cookie 内のユニークな ID のみによって認証をおこなう"
     1: "Cookie が利用できる端末の場合は Cookie 内のユニークな ID を用い、それ以外の端末では携帯電話個体識別番号によって認証をおこなう"
     0: "携帯電話個体識別番号のみによって認証をおこなう (非推奨)"
+
+auth_mode_caption:
+  IsConfig: 0
+  Default:  "Mobile-UID Login (For Japanese mobile phone)"
