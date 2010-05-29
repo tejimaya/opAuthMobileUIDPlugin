@@ -4,3 +4,16 @@ enable_pc:
 
 admin_invite:
   Default:  false
+
+uid_type:
+  Name:      "uid_type"
+  Caption:   "認証に使用する ID の設定"
+  FormType:  "radio"
+  ValueType: "text"
+  IsConfig:   true
+  IsRequired: true
+  Default:    1
+  Choices:
+    2: "Cookie 内のユニークな ID のみによって認証をおこなう"
+    1: "Cookie が利用できる端末の場合は Cookie 内のユニークな ID を用い、それ以外の端末では携帯電話個体識別番号によって認証をおこなう"
+    0: "携帯電話個体識別番号のみによって認証をおこなう (非推奨)"

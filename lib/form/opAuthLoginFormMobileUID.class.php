@@ -17,6 +17,10 @@
  */
 class opAuthLoginFormMobileUID extends opAuthLoginForm
 {
+  const MUST_USE_COOKIE_UID = 2;
+  const COOKIE_UID_AND_MOBILE_UID = 1;
+  const MUST_USE_MOBILE_UID = 0;
+
   public function configure()
   {
     $this->setWidgets(array(
@@ -43,16 +47,26 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
 
   public function validateMobileUid($validator, $values, $arguments = array())
   {
-    $validator = new opAuthValidatorMemberConfig(array('config_name' => 'mobile_cookie_uid'));
-    $values = $validator->clean($values);
-    if (isset($values['member']))
+    $uidType = $this->adapter->getAuthConfig('uid_type');
+
+    if (self::MUST_USE_MOBILE_UID != $uidType)
+    {
+      $validator = new opAuthValidatorMemberConfig(array('config_name' => 'mobile_cookie_uid'));
+      $values = $validator->clean($values);
+      if (isset($values['member']))
+      {
+        return $values;
+      }
+    }
+
+    if (self::MUST_USE_COOKIE_UID == $uidType)
     {
       return $values;
     }
 
     $validator = new opAuthValidatorMemberConfig(array('config_name' => 'mobile_uid'));
     $values = $validator->clean($values);
-    if (isset($values['member']) && $values['member']->getConfig('mobile_cookie_uid'))
+    if (isset($values['member']) && $values['member']->getConfig('mobile_cookie_uid') && self::MUST_USE_MOBILE_UID != $uidType)
     {
       // The specified member already use mobile_cookie_uid, but this request doesn't contain the cookie.
       // This request must not be allowed.

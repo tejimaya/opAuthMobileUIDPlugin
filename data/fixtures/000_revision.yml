@@ -1,0 +1,4 @@
+SnsConfig:
+  op_auth_mobile_uid_plugin_current_revision:
+    name: "opAuthMobileUIDPlugin_revision"
+    value: 1

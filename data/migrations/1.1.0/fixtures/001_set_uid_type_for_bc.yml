@@ -1,0 +1,4 @@
+SnsConfig:
+  op_auth_MobileUID_plugin_uid_type:
+    name: op_auth_MobileUID_plugin_uid_type
+    value: '0'
