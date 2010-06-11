@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
     http://pear.php.net/dtd/tasks-1.0.xsd
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
@@ -13,26 +13,33 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2009-02-05</date>
- <time>07:20:36</time>
+ <date>2010-06-11</date>
+ <time>17:53:52</time>
  <version>
-  <release>1.0.0</release>
-  <api>1.0.0</api>
+  <release>1.3.0</release>
+  <api>1.3.0</api>
  </version>
  <stability>
-  <release>stable</release>
-  <api>stable</api>
+  <release>devel</release>
+  <api>devel</api>
  </stability>
- <license>Apache</license>
- <notes>First release</notes>
+ <license>apache</license>
+ <notes>
+* Added ability to authenticate by mobile_cookie_uid (mobile_cookie_uid による認証のサポート)
+* Added value of auth_mode_caption for this authentication plugin
+ </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="77284d83b10b6f83d880f3ecbc268730" name="apps/mobile_frontend/i18n/messages.ja.xml" role="data" />
    <file baseinstalldir="/" md5sum="974531e473757a1fddad3dc3db45d54a" name="apps/pc_backend/modules/opAuthMobileUIDPlugin/actions/actions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="0f14de497fc83a63b4dbdba344f54142" name="apps/pc_backend/modules/opAuthMobileUIDPlugin/templates/indexSuccess.php" role="data" />
-   <file baseinstalldir="/" md5sum="8d85a0ba319d94bac0bb6978487cc50f" name="config/auth.yml" role="data" />
+   <file baseinstalldir="/" md5sum="24eb42ac30f5db81d3bf07745bddd71d" name="config/auth.yml" role="data" />
+   <file baseinstalldir="/" md5sum="dd1557448431be9ab49ac442b18feb0a" name="data/fixtures/000_revision.yml" role="data" />
+   <file baseinstalldir="/" md5sum="e01541ec7e472dec05fa0d51710e8eca" name="data/migrations/1.1.0/001_set_uid_type_for_bc.php" role="data" />
+   <file baseinstalldir="/" md5sum="1a4bc66a05dfa64ff876e8a363f11a06" name="data/migrations/1.1.0/fixtures/001_set_uid_type_for_bc.yml" role="data" />
    <file baseinstalldir="/" md5sum="c8ec6969ed65ccf41839942f53048cae" name="lib/form/opAuthConfigFormMobileUID.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="46d70342f5b30785924a0de212b73255" name="lib/form/opAuthLoginFormMobileUID.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="a2dca284ffd54a1500a33952c31b20c1" name="lib/user/opAuthAdapterMobileUID.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="6c3f59a968ba2067ee92f3a419932765" name="lib/form/opAuthLoginFormMobileUID.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="28fc9b639605e405f43c8f4eaae204cb" name="lib/user/opAuthAdapterMobileUID.class.php" role="data" />
    <file baseinstalldir="/" md5sum="3b83ef96387f14655fc854ddc3c6bd57" name="LICENSE" role="data" />
   </dir>
  </contents>
@@ -44,11 +51,6 @@
    <pearinstaller>
     <min>1.4.0</min>
    </pearinstaller>
-   <package>
-    <name>symfony</name>
-    <channel>pear.symfony-project.com</channel>
-    <min>1.2.0</min>
-   </package>
   </required>
  </dependencies>
  <phprelease />
@@ -64,7 +66,25 @@
    </stability>
    <date>2009-02-05</date>
    <license>Apache</license>
-   <notes>First release</notes>
+   <notes>
+First release
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.3.0</release>
+    <api>1.3.0</api>
+   </version>
+   <stability>
+    <release>devel</release>
+    <api>devel</api>
+   </stability>
+   <date>2010-06-11</date>
+   <license>apache</license>
+   <notes>
+* Added ability to authenticate by mobile_cookie_uid (mobile_cookie_uid による認証のサポート)
+* Added value of auth_mode_caption for this authentication plugin
+   </notes>
   </release>
  </changelog>
 </package>
