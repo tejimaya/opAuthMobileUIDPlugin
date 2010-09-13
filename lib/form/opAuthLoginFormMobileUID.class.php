@@ -42,7 +42,12 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
 
   public function isUtn()
   {
-    return true;
+    $uidType = $this->adapter->getAuthConfig('uid_type');
+
+    return (
+      self::MUST_USE_MOBILE_UID == $uidType ||
+      (self::COOKIE_UID_AND_MOBILE_UID == $uidType && !sfContext::getInstance()->getRequest()->isCookie())
+    );
   }
 
   public function validateMobileUid($validator, $values, $arguments = array())
