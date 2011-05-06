@@ -31,7 +31,10 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
     $this->setDefault('guid', 'on');
 
     $this->mergePostValidator(
-      new opAuthValidatorMemberConfig(array('config_name' => 'mobile_uid'))
+      new opAuthValidatorMemberConfig(array(
+        'config_name'       => 'mobile_uid',
+        'allow_empty_value' => false,
+      ))
     );
 
     parent::configure();
