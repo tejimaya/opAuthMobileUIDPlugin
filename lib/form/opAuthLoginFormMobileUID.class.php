@@ -56,7 +56,10 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
 
     if (self::MUST_USE_MOBILE_UID != $uidType)
     {
-      $validator = new opAuthValidatorMemberConfig(array('config_name' => 'mobile_cookie_uid'));
+      $validator = new opAuthValidatorMemberConfig(array(
+        'config_name'       => 'mobile_cookie_uid',
+        'allow_empty_value' => false,
+      ));
       $values = $validator->clean($values);
       if (isset($values['member']))
       {
@@ -69,7 +72,10 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
       return $values;
     }
 
-    $validator = new opAuthValidatorMemberConfig(array('config_name' => 'mobile_uid'));
+    $validator = new opAuthValidatorMemberConfig(array(
+      'config_name'       => 'mobile_uid',
+      'allow_empty_value' => false,
+    ));
     $values = $validator->clean($values);
     if (isset($values['member']) && $values['member']->getConfig('mobile_cookie_uid') && self::MUST_USE_MOBILE_UID != $uidType)
     {
