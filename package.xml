@@ -13,11 +13,11 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2010-09-17</date>
- <time>22:55:58</time>
+ <date>2011-05-13</date>
+ <time>17:53:21</time>
  <version>
-  <release>1.3.1</release>
-  <api>1.3.1</api>
+  <release>1.3.1.1</release>
+  <api>1.3.1.1</api>
  </version>
  <stability>
   <release>devel</release>
@@ -25,7 +25,7 @@
  </stability>
  <license>apache</license>
  <notes>
-Fixed &quot;Enhancement（機能追加・改善） #1583: opAuthLoginFormMobileUID::isUtn() の返り値を、管理画面の設定値によって決定するようにする&quot;
+fixed invalid-member login problem
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -37,7 +37,7 @@ Fixed &quot;Enhancement（機能追加・改善） #1583: opAuthLoginFormMobileU
    <file baseinstalldir="/" md5sum="e01541ec7e472dec05fa0d51710e8eca" name="data/migrations/1.1.0/001_set_uid_type_for_bc.php" role="data" />
    <file baseinstalldir="/" md5sum="1a4bc66a05dfa64ff876e8a363f11a06" name="data/migrations/1.1.0/fixtures/001_set_uid_type_for_bc.yml" role="data" />
    <file baseinstalldir="/" md5sum="c8ec6969ed65ccf41839942f53048cae" name="lib/form/opAuthConfigFormMobileUID.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="8260609bf0e66cc27a71c1af60dc9a29" name="lib/form/opAuthLoginFormMobileUID.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="644799223e62851106b3602dcd29b832" name="lib/form/opAuthLoginFormMobileUID.class.php" role="data" />
    <file baseinstalldir="/" md5sum="28fc9b639605e405f43c8f4eaae204cb" name="lib/user/opAuthAdapterMobileUID.class.php" role="data" />
    <file baseinstalldir="/" md5sum="3b83ef96387f14655fc854ddc3c6bd57" name="LICENSE" role="data" />
   </dir>
@@ -98,6 +98,21 @@ First release
    <license>apache</license>
    <notes>
 Fixed &quot;Enhancement（機能追加・改善） #1583: opAuthLoginFormMobileUID::isUtn() の返り値を、管理画面の設定値によって決定するようにする&quot;
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.3.1.1</release>
+    <api>1.3.1.1</api>
+   </version>
+   <stability>
+    <release>devel</release>
+    <api>devel</api>
+   </stability>
+   <date>2011-05-13</date>
+   <license>apache</license>
+   <notes>
+fixed invalid-member login problem
    </notes>
   </release>
  </changelog>
