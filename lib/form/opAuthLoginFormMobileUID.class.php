@@ -28,8 +28,9 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
     ));
 
     $this->setValidatorSchema(new sfValidatorSchema(array(
-      'guid'       => new sfValidatorString(array('required' => false)),
+      'guid' => new sfValidatorString(array('required' => false)),
       'mobile_uid' => new sfValidatorString(array('required' => false)),
+      'mobile_uid_fallback' => new sfValidatorString(array('required' => false)),
       'mobile_cookie_uid' => new sfValidatorString(array('required' => false)),
     )));
 
@@ -72,11 +73,23 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
       return $values;
     }
 
-    $validator = new opAuthValidatorMemberConfig(array(
-      'config_name'       => 'mobile_uid',
-      'allow_empty_value' => false,
-    ));
-    $values = $validator->clean($values);
+    $keys = array('mobile_uid', 'mobile_uid_fallback');
+
+    foreach ($keys as $key)
+    {
+      $validator = new opAuthValidatorMemberConfig(array(
+        'config_name'       => 'mobile_uid',
+        'allow_empty_value' => false,
+        'field_name'        => $key,
+      ));
+      $values = $validator->clean($values);
+
+      if (!empty($values['member']))
+      {
+        break;
+      }
+    }
+
     if (isset($values['member']) && $values['member']->getConfig('mobile_cookie_uid') && self::MUST_USE_MOBILE_UID != $uidType)
     {
       // The specified member already use mobile_cookie_uid, but this request doesn't contain the cookie.
