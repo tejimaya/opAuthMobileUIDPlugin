@@ -1,0 +1,4 @@
+SnsConfig:
+  op_auth_MobileUID_plugin_allow_fallback_uid:
+    name: op_auth_MobileUID_plugin_allow_fallback_uid
+    value: '1'

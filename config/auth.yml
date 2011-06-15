@@ -18,6 +18,18 @@ uid_type:
     1: "Cookie が利用できる端末の場合は Cookie 内のユニークな ID を用い、それ以外の端末では携帯電話個体識別番号によって認証をおこなう"
     0: "携帯電話個体識別番号のみによって認証をおこなう (非推奨)"
 
+allow_fallback_uid:
+  Name:      "allow_fallback_uid"
+  Caption:   "(ドコモ、ソフトバンクのみ) 主となる携帯電話個体識別番号が取得できなかった場合に、代替の携帯電話個体識別番号を取得するかどうか"
+  FormType:  "radio"
+  ValueType: "text"
+  IsConfig:   true
+  IsRequired: true
+  Default:    0
+  Choices:
+    0: "取得しない"
+    1: "取得する (非推奨)"
+
 auth_mode_caption:
   IsConfig: 0
   Default:  "Mobile-UID Login (For Japanese mobile phone)"
