@@ -30,7 +30,8 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
     $this->setValidatorSchema(new sfValidatorSchema(array(
       'guid' => new sfValidatorString(array('required' => false)),
       'mobile_uid' => new sfValidatorString(array('required' => false)),
-      'mobile_uid_fallback' => new sfValidatorString(array('required' => false)),
+      'mobile_uid_fallback_op3' => new sfValidatorString(array('required' => false)),
+      'mobile_uid_fallback_op2' => new sfValidatorString(array('required' => false)),
       'mobile_cookie_uid' => new sfValidatorString(array('required' => false)),
     )));
 
@@ -73,7 +74,7 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
       return $values;
     }
 
-    $keys = array('mobile_uid', 'mobile_uid_fallback');
+    $keys = array('mobile_uid', 'mobile_uid_fallback_op3', 'mobile_uid_fallback_op2');
 
     foreach ($keys as $key)
     {
