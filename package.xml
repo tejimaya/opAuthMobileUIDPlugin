@@ -13,32 +13,34 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2011-05-13</date>
- <time>17:53:21</time>
+ <date>2011-08-19</date>
+ <time>15:46:52</time>
  <version>
-  <release>1.3.1.1</release>
-  <api>1.3.1.1</api>
+  <release>1.3.2</release>
+  <api>1.3.2</api>
  </version>
  <stability>
-  <release>devel</release>
-  <api>devel</api>
+  <release>stable</release>
+  <api>stable</api>
  </stability>
  <license>apache</license>
  <notes>
-fixed invalid-member login problem
+Fixed &apos;Enhancement（機能追加・改善） #2220: OpenPNE 2 からアップグレードしたユーザの救済のために携帯電話個体識別番号のマッチングを複数回おこなう&apos; and 1.3.x is now on stable stage
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" md5sum="77284d83b10b6f83d880f3ecbc268730" name="apps/mobile_frontend/i18n/messages.ja.xml" role="data" />
    <file baseinstalldir="/" md5sum="974531e473757a1fddad3dc3db45d54a" name="apps/pc_backend/modules/opAuthMobileUIDPlugin/actions/actions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="0f14de497fc83a63b4dbdba344f54142" name="apps/pc_backend/modules/opAuthMobileUIDPlugin/templates/indexSuccess.php" role="data" />
-   <file baseinstalldir="/" md5sum="24eb42ac30f5db81d3bf07745bddd71d" name="config/auth.yml" role="data" />
-   <file baseinstalldir="/" md5sum="dd1557448431be9ab49ac442b18feb0a" name="data/fixtures/000_revision.yml" role="data" />
+   <file baseinstalldir="/" md5sum="122c9e9ad027626f2e7c3dfd48a42c63" name="config/auth.yml" role="data" />
+   <file baseinstalldir="/" md5sum="9a1ad8c193ed3d2f534d91214f09556b" name="data/fixtures/000_revision.yml" role="data" />
    <file baseinstalldir="/" md5sum="e01541ec7e472dec05fa0d51710e8eca" name="data/migrations/1.1.0/001_set_uid_type_for_bc.php" role="data" />
    <file baseinstalldir="/" md5sum="1a4bc66a05dfa64ff876e8a363f11a06" name="data/migrations/1.1.0/fixtures/001_set_uid_type_for_bc.yml" role="data" />
-   <file baseinstalldir="/" md5sum="c8ec6969ed65ccf41839942f53048cae" name="lib/form/opAuthConfigFormMobileUID.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="644799223e62851106b3602dcd29b832" name="lib/form/opAuthLoginFormMobileUID.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="28fc9b639605e405f43c8f4eaae204cb" name="lib/user/opAuthAdapterMobileUID.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="1c771f29f9d2fb0dc30633bd8a4eff27" name="data/migrations/1.3.2/002_set_allow_fallback_uid_for_bc.php" role="data" />
+   <file baseinstalldir="/" md5sum="c9040c1de1907808562d1e105982e7af" name="data/migrations/1.3.2/fixtures/002_set_allow_fallback_uid_for_bc.yml" role="data" />
+   <file baseinstalldir="/" md5sum="3b34f0a08a77e2f41bdfeb6e20ba7090" name="lib/form/opAuthConfigFormMobileUID.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="38d328c9422dee250a45463ea5453d7e" name="lib/form/opAuthLoginFormMobileUID.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="ebd70415c70af2f823b7547775db4d10" name="lib/user/opAuthAdapterMobileUID.class.php" role="data" />
    <file baseinstalldir="/" md5sum="3b83ef96387f14655fc854ddc3c6bd57" name="LICENSE" role="data" />
   </dir>
  </contents>
@@ -113,6 +115,21 @@ Fixed &quot;Enhancement（機能追加・改善） #1583: opAuthLoginFormMobileU
    <license>apache</license>
    <notes>
 fixed invalid-member login problem
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.3.2</release>
+    <api>1.3.2</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2011-08-19</date>
+   <license>apache</license>
+   <notes>
+Fixed &apos;Enhancement（機能追加・改善） #2220: OpenPNE 2 からアップグレードしたユーザの救済のために携帯電話個体識別番号のマッチングを複数回おこなう&apos; and 1.3.x is now on stable stage
    </notes>
   </release>
  </changelog>
