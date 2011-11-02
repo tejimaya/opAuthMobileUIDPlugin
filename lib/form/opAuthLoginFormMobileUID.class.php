@@ -24,18 +24,14 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
     ));
 
     $this->setValidatorSchema(new sfValidatorSchema(array(
-      'guid'       => new sfValidatorString(array('required' => false)),
-      'mobile_uid' => new sfValidatorString(array('required' => true)),
+      'guid' => new sfValidatorString(array('required' => false)),
+      'mobile_uid' => new sfValidatorString(array('required' => false)),
+      'mobile_uid_fallback' => new sfValidatorString(array('required' => false)),
     )));
 
     $this->setDefault('guid', 'on');
 
-    $this->mergePostValidator(
-      new opAuthValidatorMemberConfig(array(
-        'config_name'       => 'mobile_uid',
-        'allow_empty_value' => false,
-      ))
-    );
+    $this->mergePostValidator(new sfValidatorCallback(array('callback' => array($this, 'validateMobileUid'))));
 
     parent::configure();
   }
@@ -43,5 +39,27 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
   public function isUtn()
   {
     return true;
+  }
+
+  public function validateMobileUid($validator, $values, $arguments = array())
+  {
+    $keys = array('mobile_uid', 'mobile_uid_fallback');
+
+    foreach ($keys as $key)
+    {
+      $validator = new opAuthValidatorMemberConfig(array(
+        'config_name'       => 'mobile_uid',
+        'allow_empty_value' => false,
+        'field_name'        => $key,
+      ));
+      $values = $validator->clean($values);
+
+      if (!empty($values['member']))
+      {
+        break;
+      }
+    }
+
+    return $values;
   }
 }
