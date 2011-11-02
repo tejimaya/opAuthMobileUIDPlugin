@@ -17,4 +17,10 @@
  */
 class opAuthConfigFormMobileUID extends opAuthConfigForm
 {
+  public function setup()
+  {
+    parent::setup();
+
+    $this->getWidgetSchema()->setHelp('allow_fallback_uid', 'この設定を有効にすると、ユーザエージェントに埋め込まれた携帯電話個体識別番号の取得がおこなわれるようになります。ユーザエージェント内の携帯電話個体識別番号は信頼できる値ではないため、通常、この設定を有効にするべきではありません。なお、アップグレード時のデフォルト設定は「取得しない」となっています。');
+  }
 }

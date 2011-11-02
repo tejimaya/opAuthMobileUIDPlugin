@@ -24,7 +24,7 @@ class opAuthAdapterMobileUID extends opAuthAdapter
     $params = parent::getAuthParameters();
     $params['mobile_uid'] = $this->getRequest()->getMobileUID(false);
 
-    if (is_callable(array($this->getRequest(), 'getMobileFallbackUID')))
+    if (is_callable(array($this->getRequest(), 'getMobileFallbackUID')) && $this->getAuthConfig('allow_fallback_uid'))
     {
       $params['mobile_uid_fallback'] = $this->getRequest()->getMobileFallbackUID();
     }
