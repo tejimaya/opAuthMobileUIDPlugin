@@ -12,7 +12,7 @@ allow_fallback_uid:
   ValueType: "text"
   IsConfig:   true
   IsRequired: true
-  Default:    0
+  Default:    1
   Choices:
     0: "取得しない"
     1: "取得する (非推奨)"
