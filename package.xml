@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
     http://pear.php.net/dtd/tasks-1.0.xsd
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
@@ -13,28 +13,26 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2011-05-13</date>
- <time>17:51:32</time>
+ <date>2011-11-10</date>
+ <time>19:20:22</time>
  <version>
-  <release>1.0.0.1</release>
-  <api>1.0.0.1</api>
+  <release>1.0.1</release>
+  <api>1.0.1</api>
  </version>
  <stability>
   <release>stable</release>
   <api>stable</api>
  </stability>
  <license>apache</license>
- <notes>
-fixed invalid-member login problem
- </notes>
+ <notes>Backport（バックポート） #2526: OpenPNE 2 からアップグレードしたユーザの救済のために携帯電話個体識別番号のマッチングを複数回おこなう</notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" md5sum="974531e473757a1fddad3dc3db45d54a" name="apps/pc_backend/modules/opAuthMobileUIDPlugin/actions/actions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="0f14de497fc83a63b4dbdba344f54142" name="apps/pc_backend/modules/opAuthMobileUIDPlugin/templates/indexSuccess.php" role="data" />
-   <file baseinstalldir="/" md5sum="8d85a0ba319d94bac0bb6978487cc50f" name="config/auth.yml" role="data" />
-   <file baseinstalldir="/" md5sum="c8ec6969ed65ccf41839942f53048cae" name="lib/form/opAuthConfigFormMobileUID.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="3cffa25348609d0641100313278a6ef1" name="lib/form/opAuthLoginFormMobileUID.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="a2dca284ffd54a1500a33952c31b20c1" name="lib/user/opAuthAdapterMobileUID.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="f7375ceba7b62fd2eafc606505910587" name="config/auth.yml" role="data" />
+   <file baseinstalldir="/" md5sum="ad8434e4208814b24701b2052fdbd12a" name="lib/form/opAuthConfigFormMobileUID.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="217455d0ebf7ff8a57eb53cf85248028" name="lib/form/opAuthLoginFormMobileUID.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="f71d4b43b1752552a8528ff5d687e4ec" name="lib/user/opAuthAdapterMobileUID.class.php" role="data" />
    <file baseinstalldir="/" md5sum="3b83ef96387f14655fc854ddc3c6bd57" name="LICENSE" role="data" />
   </dir>
  </contents>
@@ -46,6 +44,11 @@ fixed invalid-member login problem
    <pearinstaller>
     <min>1.4.0</min>
    </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.2.0</min>
+   </package>
   </required>
  </dependencies>
  <phprelease />
@@ -61,9 +64,7 @@ fixed invalid-member login problem
    </stability>
    <date>2009-02-05</date>
    <license>Apache</license>
-   <notes>
-First release
-   </notes>
+   <notes>First release</notes>
   </release>
   <release>
    <version>
@@ -76,9 +77,20 @@ First release
    </stability>
    <date>2011-05-13</date>
    <license>apache</license>
-   <notes>
-fixed invalid-member login problem
-   </notes>
+   <notes>fixed invalid-member login problem</notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.1</release>
+    <api>1.0.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2011-11-10</date>
+   <license>apache</license>
+   <notes>Backport（バックポート） #2526: OpenPNE 2 からアップグレードしたユーザの救済のために携帯電話個体識別番号のマッチングを複数回おこなう</notes>
   </release>
  </changelog>
 </package>
