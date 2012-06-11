@@ -58,11 +58,7 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
 
     if (self::MUST_USE_MOBILE_UID != $uidType)
     {
-      $validator = new opAuthValidatorMemberConfig(array(
-        'config_name'       => 'mobile_cookie_uid',
-        'allow_empty_value' => false,
-      ));
-      $values = $validator->clean($values);
+      $values = $this->validateUsingMobileCookieUid($values);
       if (isset($values['member']))
       {
         return $values;
@@ -74,6 +70,31 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
       return $values;
     }
 
+    $values = $this->validateUsingMobileUid($values);
+
+    if (isset($values['member']) && $values['member']->getConfig('mobile_cookie_uid') && self::MUST_USE_MOBILE_UID != $uidType)
+    {
+      // The specified member already use mobile_cookie_uid, but this request doesn't contain the cookie.
+      // This request must not be allowed.
+      unset($values['member']);
+    }
+
+    return $values;
+  }
+
+  private function validateUsingMobileCookieUid($values)
+  {
+    $validator = new opAuthValidatorMemberConfig(array(
+      'config_name'       => 'mobile_cookie_uid',
+      'allow_empty_value' => false,
+    ));
+    $values = $validator->clean($values);
+
+    return $values;
+  }
+
+  private function  validateUsingMobileUid($values)
+  {
     $keys = array('mobile_uid', 'mobile_uid_fallback_op3', 'mobile_uid_fallback_op2');
 
     foreach ($keys as $key)
@@ -89,13 +110,6 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
       {
         break;
       }
-    }
-
-    if (isset($values['member']) && $values['member']->getConfig('mobile_cookie_uid') && self::MUST_USE_MOBILE_UID != $uidType)
-    {
-      // The specified member already use mobile_cookie_uid, but this request doesn't contain the cookie.
-      // This request must not be allowed.
-      unset($values['member']);
     }
 
     return $values;
