@@ -56,7 +56,8 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
   {
     $uidType = $this->adapter->getAuthConfig('uid_type');
 
-    if (self::MUST_USE_MOBILE_UID != $uidType)
+    $isUseMobileCookie = sfConfig::get('op_is_use_mobile_cookie');
+    if (self::MUST_USE_MOBILE_UID != $uidType && $isUseMobileCookie)
     {
       $values = $this->validateUsingMobileCookieUid($values);
       if (isset($values['member']))
@@ -69,7 +70,8 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
     {
       $values = $this->validateUsingMobileUid($values);
 
-      if (isset($values['member']) && $values['member']->getConfig('mobile_cookie_uid') && self::MUST_USE_MOBILE_UID != $uidType)
+      $hasMobileCookieUid = isset($values['member']) && $values['member']->getConfig('mobile_cookie_uid');
+      if ($hasMobileCookieUid && $isUseMoileCookie)
       {
         // The specified member already use mobile_cookie_uid, but this request doesn't contain the cookie.
         // This request must not be allowed.
