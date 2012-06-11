@@ -65,18 +65,16 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
       }
     }
 
-    if (self::MUST_USE_COOKIE_UID == $uidType)
+    if (self::MUST_USE_COOKIE_UID != $uidType)
     {
-      return $values;
-    }
+      $values = $this->validateUsingMobileUid($values);
 
-    $values = $this->validateUsingMobileUid($values);
-
-    if (isset($values['member']) && $values['member']->getConfig('mobile_cookie_uid') && self::MUST_USE_MOBILE_UID != $uidType)
-    {
-      // The specified member already use mobile_cookie_uid, but this request doesn't contain the cookie.
-      // This request must not be allowed.
-      unset($values['member']);
+      if (isset($values['member']) && $values['member']->getConfig('mobile_cookie_uid') && self::MUST_USE_MOBILE_UID != $uidType)
+      {
+        // The specified member already use mobile_cookie_uid, but this request doesn't contain the cookie.
+        // This request must not be allowed.
+        unset($values['member']);
+      }
     }
 
     return $values;
