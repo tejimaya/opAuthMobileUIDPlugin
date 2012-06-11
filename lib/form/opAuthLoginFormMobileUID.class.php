@@ -56,7 +56,7 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
   {
     $uidType = $this->adapter->getAuthConfig('uid_type');
 
-    $isUseMobileCookie = sfConfig::get('op_is_use_mobile_cookie');
+    $isUseMobileCookie = sfConfig::get('op_is_use_mobile_cookie', true);
     if (self::MUST_USE_MOBILE_UID != $uidType && $isUseMobileCookie)
     {
       $values = $this->validateUsingMobileCookieUid($values);
