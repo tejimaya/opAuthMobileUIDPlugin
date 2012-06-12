@@ -54,10 +54,7 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
 
   public function validateMobileUid($validator, $values, $arguments = array())
   {
-    $uidType = $this->adapter->getAuthConfig('uid_type');
-
-    $isUseMobileCookie = sfConfig::get('op_is_use_mobile_cookie', true);
-    if (self::MUST_USE_MOBILE_UID != $uidType && $isUseMobileCookie)
+    if ($this->isUseCookieUid())
     {
       $values = $this->validateUsingMobileCookieUid($values);
       if (isset($values['member']))
@@ -66,20 +63,38 @@ class opAuthLoginFormMobileUID extends opAuthLoginForm
       }
     }
 
-    if (self::MUST_USE_COOKIE_UID != $uidType)
+    if ($this->isUseMobileUid())
     {
       $values = $this->validateUsingMobileUid($values);
 
-      $hasMobileCookieUid = isset($values['member']) && $values['member']->getConfig('mobile_cookie_uid');
-      if ($hasMobileCookieUid && $isUseMoileCookie)
+      if ($this->isUseCookieUid())
       {
-        // The specified member already use mobile_cookie_uid, but this request doesn't contain the cookie.
-        // This request must not be allowed.
-        unset($values['member']);
+        $hasMobileCookieUid = isset($values['member']) && $values['member']->getConfig('mobile_cookie_uid');
+        if ($hasMobileCookieUid)
+        {
+          // The specified member already use mobile_cookie_uid, but this request doesn't contain the cookie.
+          // This request must not be allowed.
+          unset($values['member']);
+        }
       }
     }
 
     return $values;
+  }
+
+  private function isUseCookieUid()
+  {
+    $uidType = $this->adapter->getAuthConfig('uid_type');
+    $isUseMobileCookie = sfConfig::get('op_is_use_mobile_cookie', true);
+
+    return $isUseMobileCookie && self::MUST_USE_MOBILE_UID != $uidType;
+  }
+
+  private function isUseMobileUid()
+  {
+    $uidType = $this->adapter->getAuthConfig('uid_type');
+
+    return self::MUST_USE_COOKIE_UID != $uidType;
   }
 
   private function validateUsingMobileCookieUid($values)
