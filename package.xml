@@ -13,11 +13,17 @@
   <email />
   <active>yes</active>
  </lead>
- <date>2011-08-19</date>
- <time>15:46:52</time>
+ <lead>
+  <name>Yuya Watanabe</name>
+  <user>watanabe</user>
+  <email />
+  <active>yes</active>
+ </lead>
+ <date>2012-06-14</date>
+ <time>22:18:25</time>
  <version>
-  <release>1.3.2</release>
-  <api>1.3.2</api>
+  <release>1.3.3</release>
+  <api>1.3.3</api>
  </version>
  <stability>
   <release>stable</release>
@@ -25,7 +31,7 @@
  </stability>
  <license>apache</license>
  <notes>
-Fixed &apos;Enhancement（機能追加・改善） #2220: OpenPNE 2 からアップグレードしたユーザの救済のために携帯電話個体識別番号のマッチングを複数回おこなう&apos; and 1.3.x is now on stable stage
+bug（バグ） #2926: 「モバイルcookie使用設定(is_use_mobile_cookie)」の値をfalseにすると、かんたんログインに必要な cookie の値が更新・削除されなくなる
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -39,7 +45,7 @@ Fixed &apos;Enhancement（機能追加・改善） #2220: OpenPNE 2 からアッ
    <file baseinstalldir="/" md5sum="1c771f29f9d2fb0dc30633bd8a4eff27" name="data/migrations/1.3.2/002_set_allow_fallback_uid_for_bc.php" role="data" />
    <file baseinstalldir="/" md5sum="c9040c1de1907808562d1e105982e7af" name="data/migrations/1.3.2/fixtures/002_set_allow_fallback_uid_for_bc.yml" role="data" />
    <file baseinstalldir="/" md5sum="3b34f0a08a77e2f41bdfeb6e20ba7090" name="lib/form/opAuthConfigFormMobileUID.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="38d328c9422dee250a45463ea5453d7e" name="lib/form/opAuthLoginFormMobileUID.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="d10bdc4f1610532ea2e86e82a174b9e2" name="lib/form/opAuthLoginFormMobileUID.class.php" role="data" />
    <file baseinstalldir="/" md5sum="ebd70415c70af2f823b7547775db4d10" name="lib/user/opAuthAdapterMobileUID.class.php" role="data" />
    <file baseinstalldir="/" md5sum="3b83ef96387f14655fc854ddc3c6bd57" name="LICENSE" role="data" />
   </dir>
@@ -130,6 +136,21 @@ fixed invalid-member login problem
    <license>apache</license>
    <notes>
 Fixed &apos;Enhancement（機能追加・改善） #2220: OpenPNE 2 からアップグレードしたユーザの救済のために携帯電話個体識別番号のマッチングを複数回おこなう&apos; and 1.3.x is now on stable stage
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.3.3</release>
+    <api>1.3.3</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2012-06-14</date>
+   <license>apache</license>
+   <notes>
+bug（バグ） #2926: 「モバイルcookie使用設定(is_use_mobile_cookie)」の値をfalseにすると、かんたんログインに必要な cookie の値が更新・削除されなくなる
    </notes>
   </release>
  </changelog>
